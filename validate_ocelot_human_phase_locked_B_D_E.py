@@ -5,7 +5,7 @@ import hashlib
 # 3/17/26 by Jon Whear (whear003@umn.edu AND jonwhear@gmail.com) with assistance by OpenAI ChatGPT 5.4
 
 MAT_PATH = r"C:\Users\TNEL_Device_8\Downloads\widgePhaseDependentStimPhaseDependentData (2).mat"
-NPZ_PATH = r"C:\Users\TNEL_Device_8\Downloads\ocelot_B_D_E_phase_locked_only.npz"
+NPZ_PATH = r"C:\Users\TNEL_Device_8\Downloads\ocelot_human_phase_locked_validation_set_B_D_E.npz"
 FS = 16000
 
 SESSION_MATCH = {
