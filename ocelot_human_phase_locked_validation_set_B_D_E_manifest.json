@@ -1,0 +1,124 @@
+{
+  "source_matlab_file": "C:\\Users\\TNEL_Device_8\\Downloads\\widgePhaseDependentStimPhaseDependentData (2).mat",
+  "sampling_rate_hz": 16000,
+  "description": "Phase-locked human stimulation sessions B, D, and E extracted from compiled MATLAB container.",
+  "sessions": {
+    "B": {
+      "compiled_session_name": "inStim03_phaseDependent_session01",
+      "n_samples": 15200001,
+      "n_stim_events": 2497,
+      "first_10_stim_sample_indices": [
+        327027,
+        330002,
+        335128,
+        340568,
+        344721,
+        350019,
+        355613,
+        360881,
+        365842,
+        369522
+      ],
+      "first_10_stim_times_sec": [
+        20.4391875,
+        20.625125,
+        20.9455,
+        21.2855,
+        21.5450625,
+        21.8761875,
+        22.2258125,
+        22.5550625,
+        22.865125,
+        23.095125
+      ],
+      "phase_structure": "Left Temporal Cortex (BA21)",
+      "stim_structure": "Left Amygdala",
+      "phase_channel_labels": [
+        "LPH9",
+        "LPH10"
+      ],
+      "stim_channel_labels": [
+        "LA2",
+        "LA3"
+      ]
+    },
+    "D": {
+      "compiled_session_name": "inStim05_phaseDependent_session01",
+      "n_samples": 14592001,
+      "n_stim_events": 2930,
+      "first_10_stim_sample_indices": [
+        180518,
+        186872,
+        191998,
+        195828,
+        199353,
+        203050,
+        207025,
+        213268,
+        217104,
+        220948
+      ],
+      "first_10_stim_times_sec": [
+        11.282375,
+        11.6795,
+        11.999875,
+        12.23925,
+        12.4595625,
+        12.690625,
+        12.9390625,
+        13.32925,
+        13.569,
+        13.80925
+      ],
+      "phase_structure": "Right OFC (BA11)",
+      "stim_structure": "Right Amygdala",
+      "phase_channel_labels": [
+        "ROF3",
+        "ROF4"
+      ],
+      "stim_channel_labels": [
+        "RAM2",
+        "RAM3"
+      ]
+    },
+    "E": {
+      "compiled_session_name": "inStim05_phaseDependent_session02",
+      "n_samples": 15136001,
+      "n_stim_events": 2617,
+      "first_10_stim_sample_indices": [
+        727339,
+        732868,
+        738629,
+        744402,
+        751107,
+        755906,
+        761822,
+        767121,
+        773194,
+        778145
+      ],
+      "first_10_stim_times_sec": [
+        45.4586875,
+        45.80425,
+        46.1643125,
+        46.525125,
+        46.9441875,
+        47.244125,
+        47.613875,
+        47.9450625,
+        48.324625,
+        48.6340625
+      ],
+      "phase_structure": "Left Temporal Pole (BA21)",
+      "stim_structure": "Left Temporal Pole (BA38)",
+      "phase_channel_labels": [
+        "LA6",
+        "LA7"
+      ],
+      "stim_channel_labels": [
+        "LPH10",
+        "LPH11"
+      ]
+    }
+  }
+}
