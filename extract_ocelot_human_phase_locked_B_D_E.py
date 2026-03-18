@@ -5,25 +5,15 @@ import os
 
 # 3/17/26 by Jon Whear (whear003@umn.edu AND jonwhear@gmail.com) with formatting assistance by OpenAI ChatGPT 5.4
 
-# =========================
-# SETTINGS
-# =========================
-
 MAT_PATH = r"C:\Users\TNEL_Device_8\Downloads\widgePhaseDependentStimPhaseDependentData (2).mat"
-OUT_PATH = r"C:\Users\TNEL_Device_8\Downloads\ocelot_B_D_E_phase_locked_only.npz"
-MANIFEST_PATH = r"C:\Users\TNEL_Device_8\Downloads\ocelot_B_D_E_phase_locked_only_manifest.json"
+OUT_PATH = r"C:\Users\TNEL_Device_8\Downloads\ocelot_human_phase_locked_validation_set_B_D_E.npz"
+MANIFEST_PATH = r"C:\Users\TNEL_Device_8\Downloads\ocelot_human_phase_locked_validation_set_B_D_E_manifest.json"
 FS = 16000
 
-# Selected Human PL stimulation sessions
-# B = instim03 PL
-# D = instim05 session01 PL
-# E = instim05 session02 PL
-
-# Adjust these substrings if needed after printing allSessionNames.
 SESSION_MATCH = {
-    "B": ["instim03", "phaseDependent", "session01"],
-    "D": ["instim05", "phaseDependent", "session01"],
-    "E": ["instim05", "phaseDependent", "session02"],
+    "B": ["instim03", "phasedependent", "session01"],
+    "D": ["instim05", "phasedependent", "session01"],
+    "E": ["instim05", "phasedependent", "session02"],
 }
 
 SESSION_METADATA = {
@@ -46,11 +36,6 @@ SESSION_METADATA = {
         "stim_channel_labels": ["LPH10", "LPH11"],
     },
 }
-
-
-# =========================
-# FUNCTIONS
-# =========================
 
 def normalize_name(x):
     if isinstance(x, bytes):
@@ -77,11 +62,6 @@ def as_1d(x, dtype=None):
         arr = np.asarray(arr, dtype=dtype)
     return arr
 
-
-# =========================
-# LOAD FILE
-# =========================
-
 mat = scipy.io.loadmat(MAT_PATH, squeeze_me=True, struct_as_record=False)
 
 allSessionNames = [normalize_name(x) for x in np.atleast_1d(mat["allSessionNames"])]
@@ -92,10 +72,6 @@ allStimTimeInd = np.atleast_1d(mat["allStimTimeInd"])
 print("\nAvailable compiled sessions:")
 for i, name in enumerate(allSessionNames):
     print(f"[{i}] {name}")
-
-# =========================
-# EXTRACT B, D, E
-# =========================
 
 export_dict = {}
 manifest = {
@@ -109,15 +85,11 @@ for session_letter, substrings in SESSION_MATCH.items():
     idx_matches = find_session_index(allSessionNames, substrings)
 
     if len(idx_matches) == 0:
-        raise ValueError(
-            f"No compiled session matched {session_letter} with substrings {substrings}.\n"
-            f"Check printed session names and tighten the matching."
-        )
+        raise ValueError(f"No compiled session matched {session_letter} with substrings {substrings}")
     if len(idx_matches) > 1:
         raise ValueError(
             f"Multiple compiled sessions matched {session_letter}: {idx_matches}\n"
-            f"Matched names: {[allSessionNames[i] for i in idx_matches]}\n"
-            f"Tighten SESSION_MATCH so each letter maps to exactly one PL session."
+            f"Matched names: {[allSessionNames[i] for i in idx_matches]}"
         )
 
     idx = idx_matches[0]
@@ -125,7 +97,8 @@ for session_letter, substrings in SESSION_MATCH.items():
 
     phase_trace = as_1d(allPhaseTraces[idx], dtype=np.float64)
     stim_trace = as_1d(allStimTraces[idx], dtype=np.float64)
-    stim_times = as_1d(allStimTimeInd[idx], dtype=np.int64)
+    stim_sample_indices = as_1d(allStimTimeInd[idx], dtype=np.int64)
+    stim_times_sec = stim_sample_indices / FS
 
     if phase_trace.shape != stim_trace.shape:
         raise ValueError(
@@ -133,26 +106,24 @@ for session_letter, substrings in SESSION_MATCH.items():
             f"{phase_trace.shape} vs {stim_trace.shape}"
         )
 
-    # Save arrays into the NPZ under simple names
     export_dict[f"{session_letter}_phase_trace"] = phase_trace
     export_dict[f"{session_letter}_stim_trace"] = stim_trace
-    export_dict[f"{session_letter}_stim_times"] = stim_times
+    export_dict[f"{session_letter}_stim_sample_indices"] = stim_sample_indices
+    export_dict[f"{session_letter}_stim_times_sec"] = stim_times_sec
 
     manifest["sessions"][session_letter] = {
         "compiled_session_name": compiled_name,
         "n_samples": int(len(phase_trace)),
-        "n_stim_events": int(len(stim_times)),
+        "n_stim_events": int(len(stim_sample_indices)),
+        "first_10_stim_sample_indices": stim_sample_indices[:10].tolist(),
+        "first_10_stim_times_sec": stim_times_sec[:10].tolist(),
         **SESSION_METADATA[session_letter],
     }
 
     print(f"\n{session_letter}:")
     print(f"  compiled session = {compiled_name}")
     print(f"  samples = {len(phase_trace)}")
-    print(f"  stim events = {len(stim_times)}")
-
-# =========================
-# SAVE OUTPUTS
-# =========================
+    print(f"  stim events = {len(stim_sample_indices)}")
 
 np.savez_compressed(OUT_PATH, **export_dict)
 
