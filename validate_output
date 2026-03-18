@@ -1,0 +1,40 @@
+B -> inStim03_phaseDependent_session01
+  phase exact: True
+  stim exact: True
+  stim sample indices exact: True
+  stim times sec exact: True
+  phase hash src/out: 6d52dadeace26a9dc8e4129b2cd73d92685328fb3a747c6e66b1554aefc9285b 6d52dadeace26a9dc8e4129b2cd73d92685328fb3a747c6e66b1554aefc9285b
+  stim hash src/out: 134357fec342a6ca8c204205b491a0168a16b81cc38f01d238de4f540d1c6119 134357fec342a6ca8c204205b491a0168a16b81cc38f01d238de4f540d1c6119
+  stim index hash src/out: 1bf554ec359690a6771d923d3397c9b4d636a9a71f45c294d5f03cf1106af490 1bf554ec359690a6771d923d3397c9b4d636a9a71f45c294d5f03cf1106af490
+  inter-event spacing: min=2522, mean=5766.9, max=15014 samples
+  first 10 stim sample indices: [327027 330002 335128 340568 344721 350019 355613 360881 365842 369522]
+  first 10 stim times sec: [20.4391875 20.625125  20.9455    21.2855    21.5450625 21.8761875
+ 22.2258125 22.5550625 22.865125  23.095125 ]
+
+D -> inStim05_phaseDependent_session01
+  phase exact: True
+  stim exact: True
+  stim sample indices exact: True
+  stim times sec exact: True
+  phase hash src/out: 8d2a114f9d9970305863bf02f2db99c10c3d1ddd4f14ac3603730c3382fd8951 8d2a114f9d9970305863bf02f2db99c10c3d1ddd4f14ac3603730c3382fd8951
+  stim hash src/out: b874ad1d6b33c9d19f6be4e9d5f7c98e7de6a99534517abd277a358abe8b9d69 b874ad1d6b33c9d19f6be4e9d5f7c98e7de6a99534517abd277a358abe8b9d69
+  stim index hash src/out: e20d40d21d7b546d3540c7b95d55c20d676df7059bff05314d603d6f0175f2b5 e20d40d21d7b546d3540c7b95d55c20d676df7059bff05314d603d6f0175f2b5
+  inter-event spacing: min=2081, mean=4916.0, max=7999 samples
+  first 10 stim sample indices: [180518 186872 191998 195828 199353 203050 207025 213268 217104 220948]
+  first 10 stim times sec: [11.282375  11.6795    11.999875  12.23925   12.4595625 12.690625
+ 12.9390625 13.32925   13.569     13.80925  ]
+
+E -> inStim05_phaseDependent_session02
+  phase exact: True
+  stim exact: True
+  stim sample indices exact: True
+  stim times sec exact: True
+  phase hash src/out: 52fbf313d52c91323b34d4023a0d2b76131c174ad6c4ee033c5bf2253e470264 52fbf313d52c91323b34d4023a0d2b76131c174ad6c4ee033c5bf2253e470264
+  stim hash src/out: f96fd4620625b6b029815bdaf8e63b75a56d9c9a4826cc8b15f8ae7bb5fee3b9 f96fd4620625b6b029815bdaf8e63b75a56d9c9a4826cc8b15f8ae7bb5fee3b9
+  stim index hash src/out: 4958cdc4cd9bcfa3362a9456496bc2b9bbe31c7f059d535bc8a4a0d1ab6b4cbb 4958cdc4cd9bcfa3362a9456496bc2b9bbe31c7f059d535bc8a4a0d1ab6b4cbb
+  inter-event spacing: min=2397, mean=5502.7, max=9766 samples
+  first 10 stim sample indices: [727339 732868 738629 744402 751107 755906 761822 767121 773194 778145]
+  first 10 stim times sec: [45.4586875 45.80425   46.1643125 46.525125  46.9441875 47.244125
+ 47.613875  47.9450625 48.324625  48.6340625]
+
+Validation passed: exported phase traces, stim traces, and stimulation indices match the source MATLAB file exactly.
