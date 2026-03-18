@@ -1,0 +1,52 @@
+{
+  "source_matlab_file": "C:\\Users\\TNEL_Device_8\\Downloads\\widgePhaseDependentStimPhaseDependentData (2).mat",
+  "sampling_rate_hz": 16000,
+  "description": "Phase-locked human stimulation sessions B, D, and E extracted from compiled MATLAB container.",
+  "sessions": {
+    "B": {
+      "compiled_session_name": "inStim03_phaseDependent_session01",
+      "n_samples": 15200001,
+      "n_stim_events": 2497,
+      "phase_structure": "Left Temporal Cortex (BA21)",
+      "stim_structure": "Left Amygdala",
+      "phase_channel_labels": [
+        "LPH9",
+        "LPH10"
+      ],
+      "stim_channel_labels": [
+        "LA2",
+        "LA3"
+      ]
+    },
+    "D": {
+      "compiled_session_name": "inStim05_phaseDependent_session01",
+      "n_samples": 14592001,
+      "n_stim_events": 2930,
+      "phase_structure": "Right OFC (BA11)",
+      "stim_structure": "Right Amygdala",
+      "phase_channel_labels": [
+        "ROF3",
+        "ROF4"
+      ],
+      "stim_channel_labels": [
+        "RAM2",
+        "RAM3"
+      ]
+    },
+    "E": {
+      "compiled_session_name": "inStim05_phaseDependent_session02",
+      "n_samples": 15136001,
+      "n_stim_events": 2617,
+      "phase_structure": "Left Temporal Pole (BA21)",
+      "stim_structure": "Left Temporal Pole (BA38)",
+      "phase_channel_labels": [
+        "LA6",
+        "LA7"
+      ],
+      "stim_channel_labels": [
+        "LPH10",
+        "LPH11"
+      ]
+    }
+  }
+}
